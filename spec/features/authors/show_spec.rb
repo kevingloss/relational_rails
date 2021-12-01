@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'authors show page' do
+RSpec.describe 'authors show page', type: :feature do
   it 'displays the author and attributes' do
     author = Author.create!(name: 'Robert Jordan', alive: false, age: 58)
     author_2 = Author.create!(name: 'Brandon Sanderson', alive: true, age: 45)
