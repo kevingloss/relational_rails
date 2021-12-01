@@ -8,7 +8,7 @@ RSpec.describe 'authors index page' do
 
     visit "/authors"
 
-    save_and_open_page
+    # save_and_open_page
     expect(page).to have_content(author.name)
   end
 end
