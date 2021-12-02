@@ -30,5 +30,13 @@ RSpec.describe 'authors show page', type: :feature do
 
       expect(page).to have_content("Total Books: 2")
     end
+
+    it 'has a link to the authors index' do
+      visit "/authors/#{@author.id}"
+
+      click_on "Authors"
+
+      expect(current_path).to eq("/authors")
+    end
   end
 end
