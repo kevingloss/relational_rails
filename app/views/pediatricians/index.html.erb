@@ -1,5 +1,5 @@
 <h1>Pediatricians</h1>
 
-<% @doctors.each do |doctor| %>
-<h3><%= doctor.name %></h3>
+<% @doctors.desc_order.each do |doctor| %>
+<h3><%= doctor.name %> - Created at: <%doctor.created_at%></h3>
 <% end %>

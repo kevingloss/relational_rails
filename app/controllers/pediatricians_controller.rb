@@ -1,6 +1,7 @@
 class PediatriciansController < ApplicationController
   def index
     @doctors = Pediatrician.all
+    #require "pry"; binding.pry
   end
 
   def show
