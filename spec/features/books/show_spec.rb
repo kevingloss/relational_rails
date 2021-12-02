@@ -13,14 +13,16 @@ RSpec.describe 'books show page' do
     @book_5 = @author_3.books.create!(name: 'Night Angel', rating: 3.8, read: true)
   end
 
-  it 'displays the book and attributes' do
-    visit "books/#{@book.id}"
+  describe 'when I visit a book show page' do
+    it 'displays the book and attributes' do
+      visit "books/#{@book.id}"
 
-    # save_and_open_page
-    expect(page).to have_content(@book.name)
-    expect(page).to have_content(@book.rating)
-    expect(page).to have_content(@book.read)
-    expect(page).to have_content(@book.created_at)
-    expect(page).to have_content(@book.updated_at)
+      # save_and_open_page
+      expect(page).to have_content(@book.name)
+      expect(page).to have_content(@book.rating)
+      expect(page).to have_content(@book.read)
+      expect(page).to have_content(@book.created_at)
+      expect(page).to have_content(@book.updated_at)
+    end
   end
 end

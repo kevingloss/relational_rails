@@ -14,15 +14,17 @@ RSpec.describe 'authors index page', type: :feature do
     @book_5 = @author_3.books.create!(name: 'Night Angel', rating: 3.8, read: true)
   end
 
-  it 'displays the list of an authors books' do
-    visit "/authors/#{@author.id}/books"
+  describe 'when I visit the author/:author_id/books' do 
+    it 'displays the list of an authors books' do
+      visit "/authors/#{@author.id}/books"
 
-    # this next command is the keywords for launchy to see the page that we are on
-    # save_and_open_page
-    expect(page).to have_content(@book.name)
-    expect(page).to have_content(@book.rating)
-    expect(page).to have_content(@book_2.read)
-    expect(page).to have_content(@book_2.created_at)
-    expect(page).to have_content(@book_2.updated_at)
+      # this next command is the keywords for launchy to see the page that we are on
+      # save_and_open_page
+      expect(page).to have_content(@book.name)
+      expect(page).to have_content(@book.rating)
+      expect(page).to have_content(@book_2.read)
+      expect(page).to have_content(@book_2.created_at)
+      expect(page).to have_content(@book_2.updated_at)
+    end
   end
 end

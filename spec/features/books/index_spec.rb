@@ -13,14 +13,16 @@ RSpec.describe 'books index page' do
     @book_5 = @author_3.books.create!(name: 'Night Angel', rating: 3.8, read: true)
   end
 
-  it 'displays the list of authors' do
-    visit "/books"
+  describe 'when I visit the books index page' do
+    it 'displays the list of books with attributes' do
+      visit "/books"
 
-    # save_and_open_page
-    expect(page).to have_content(@book.name)
-    expect(page).to have_content(@book.rating)
-    expect(page).to have_content(@book.read)
-    expect(page).to have_content(@book.created_at)
-    expect(page).to have_content(@book.updated_at)
+      # save_and_open_page
+      expect(page).to have_content(@book.name)
+      expect(page).to have_content(@book.rating)
+      expect(page).to have_content(@book.read)
+      expect(page).to have_content(@book.created_at)
+      expect(page).to have_content(@book.updated_at)
+    end
   end
 end
