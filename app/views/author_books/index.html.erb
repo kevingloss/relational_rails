@@ -1,7 +1,7 @@
-<h1>Books</h1>
+<h1>Books by: <%= @author.name %></h1>
 
 <% @books.each do |book| %>
-  <h3><%= book.name %></h3>
+  <h2> <%= book.name %> </h2>
   <p>Rating: <%= book.rating %> | Read: <%= book.read %></p>
   <p>Created At: <%= book.created_at %> | Updated At: <%= book.updated_at %></p>
 <% end %>
