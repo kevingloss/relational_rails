@@ -13,8 +13,12 @@ Rails.application.routes.draw do
 
 
 
+
   get '/pediatricians', to: 'pediatricians#index'
   get '/pediatricians/:id', to: 'pediatricians#show'
   get '/patients', to: 'patients#index'
   get '/patients/:id', to: 'patients#show'
+
+  get '/authors/:author_id/books', to: 'author_books#index'
+
 end
