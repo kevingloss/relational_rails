@@ -11,5 +11,7 @@ RSpec.describe 'authors show page', type: :feature do
     expect(page).to have_content(author.name)
     expect(page).to have_content(author.alive)
     expect(page).to have_content(author.age)
+    expect(page).to have_content(author.created_at)
+    expect(page).to have_content(author.updated_at)
   end
 end
