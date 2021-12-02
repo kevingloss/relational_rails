@@ -2,12 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'authors index page', type: :feature do
   describe 'when I visit the parent index' do
-
-  before :each do
-    @author = Author.create!(name: 'Robert Jordan', alive: false, age: 58)
-    @author_2 = Author.create!(name: 'Brandon Sanderson', alive: true, age: 45)
-    @author_3 = Author.create!(name: 'Brent Weeks', alive: true, age: 44)
-  end
+    before :each do
+      @author = Author.create!(name: 'Robert Jordan', alive: false, age: 58)
+      @author_2 = Author.create!(name: 'Brandon Sanderson', alive: true, age: 45)
+      @author_3 = Author.create!(name: 'Brent Weeks', alive: true, age: 44)
+    end
 
     it 'displays the list of authors' do
       visit "/authors"
@@ -32,4 +31,4 @@ RSpec.describe 'authors index page', type: :feature do
       expect(page).to have_content(@author_3.created_at)
     end
   end
-end
+end 
