@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/authors/:id', to: 'authors#show'
   get '/books', to: 'books#index'
   get '/books/:id', to: 'books#show'
+  get '/authors/:author_id/books', to: 'author_books#index'
 
 
 
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   get '/pediatricians/:id', to: 'pediatricians#show'
   get '/patients', to: 'patients#index'
   get '/patients/:id', to: 'patients#show'
+  get '/pediatrician/:id/patients', to: 'pediatrician_patients#index'
 
-  get '/authors/:author_id/books', to: 'author_books#index'
 
 end

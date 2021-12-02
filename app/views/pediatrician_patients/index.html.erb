@@ -1,0 +1,7 @@
+<h1>Patients and their Pediatrician</h1>
+<h2><%=@doctor.name%></h2>
+<%@babies.each do |baby|%>
+<h4><%=baby.name%></h4>
+<p><%=baby.age_in_months%></p>
+<p><%=baby.full_term_birth%></p>
+<%end%>
