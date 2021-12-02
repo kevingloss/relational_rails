@@ -1,6 +1,6 @@
 <h1>Authors</h1>
 
-<% @authors.order(created_at: :desc).each do |author| %>
+<% @authors.desc_order.each do |author| %>
   <h3><%= author.name %></h3>
   <p>Created At: <%= author.created_at %></p>
 <% end %>
