@@ -38,5 +38,13 @@ RSpec.describe 'authors show page', type: :feature do
 
       expect(current_path).to eq("/authors")
     end
+
+    it 'has a link to the books index' do
+      visit "/authors/#{@author.id}"
+
+      click_on "Books"
+
+      expect(current_path).to eq("/books")
+    end
   end
 end

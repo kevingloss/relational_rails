@@ -30,5 +30,21 @@ RSpec.describe 'authors index page', type: :feature do
       expect(page).to have_content(@author_2.created_at)
       expect(page).to have_content(@author_3.created_at)
     end
+
+    it 'has a link to the authors index' do
+      visit "/authors/#{@author.id}"
+
+      click_on "Authors"
+
+      expect(current_path).to eq("/authors")
+    end
+
+    it 'has a link to the books index' do
+      visit "/authors/#{@author.id}"
+
+      click_on "Books"
+
+      expect(current_path).to eq("/books")
+    end
   end
-end 
+end
