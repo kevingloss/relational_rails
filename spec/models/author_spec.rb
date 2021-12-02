@@ -17,6 +17,10 @@ RSpec.describe Author, type: :model do
       @book_5 = @author_3.books.create!(name: 'Night Angel', rating: 3.8, read: true)
     end
 
+    it 'can sort the authors in descending order by created at' do
+      expect(Author.desc_order).to eq([@author_3, @author_2, @author])
+    end
+
     it 'can count the number of books for an author' do
       expect(@author.total_books).to eq(2)
       expect(@author_2.total_books).to eq(1)
