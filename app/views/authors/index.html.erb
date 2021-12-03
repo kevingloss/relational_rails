@@ -1,6 +1,13 @@
-<h1>Authors</h1>
+<header>
+  <%= link_to "Authors", "/authors" %>
+  <%= link_to "Books", "/books" %>
+</header>
 
-<% @authors.desc_order.each do |author| %>
-  <h3><%= author.name %></h3>
-  <p>Created At: <%= author.created_at %></p>
-<% end %>
+<body>
+  <h1>Authors</h1>
+
+  <% @authors.desc_order.each do |author| %>
+    <h3><%= author.name %></h3>
+    <p>Created At: <%= author.created_at %></p>
+  <% end %>
+</body>
