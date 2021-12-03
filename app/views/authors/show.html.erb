@@ -1,8 +1,19 @@
-<h1><%= @author.name %></h1>
-<p>Living: <%= @author.alive %></p>
-<p>Age: <%= @author.age %></p>
-<p>Created At: <%= @author.created_at %></p>
-<p>Updated At: <%= @author.updated_at %></p>
+<header>
+  <%= link_to "Authors", "/authors" %>
+  <%= link_to "Books", "/books" %>
+</header>
+
+<body>
+
+  <h1><%= @author.name %></h1>
+  <p>Living: <%= @author.alive %></p>
+  <p>Age: <%= @author.age %></p>
+  <p>Created At: <%= @author.created_at %></p>
+  <p>Updated At: <%= @author.updated_at %></p>
 
 
-<p>Total Books: <%= @author.total_books %></p>
+  <p>
+    Total Books: <%= @author.total_books %>
+    <%= link_to "(See Books by #{@author.name})", "/authors/#{@author.id}/books" %>
+  </p>
+</body>

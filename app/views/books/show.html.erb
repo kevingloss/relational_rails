@@ -1,6 +1,12 @@
-<h1><%= @book.name %></h1>
-<p>Rating: <%= @book.rating %></p>
-<p>Read: <%= @book.read %></p>
-<p>Created At: <%= @book.created_at %></p>
-<p>Updated At: <%= @book.updated_at %></p>
+<header>
+  <%= link_to "Authors", "/authors" %>
+  <%= link_to "Books", "/books" %>
+</header>
 
+<body>
+  <h1><%= @book.name %></h1>
+  <p>Rating: <%= @book.rating %></p>
+  <p>Read: <%= @book.read %></p>
+  <p>Created At: <%= @book.created_at %></p>
+  <p>Updated At: <%= @book.updated_at %></p>
+</body>

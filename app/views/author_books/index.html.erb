@@ -1,7 +1,14 @@
-<h1>Books by: <%= @author.name %></h1>
+<header>
+  <%= link_to "Authors", "/authors" %>
+  <%= link_to "Books", "/books" %>
+</header>
 
-<% @books.each do |book| %>
-  <h2> <%= book.name %> </h2>
-  <p>Rating: <%= book.rating %> | Read: <%= book.read %></p>
-  <p>Created At: <%= book.created_at %> | Updated At: <%= book.updated_at %></p>
-<% end %>
+<body>
+  <h1>Books by: <%= @author.name %></h1>
+
+  <% @books.each do |book| %>
+    <h2> <%= book.name %> </h2>
+    <p>Rating: <%= book.rating %> | Read: <%= book.read %></p>
+    <p>Created At: <%= book.created_at %> | Updated At: <%= book.updated_at %></p>
+  <% end %>
+</body>
