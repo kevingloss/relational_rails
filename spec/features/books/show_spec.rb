@@ -26,7 +26,7 @@ RSpec.describe 'books show page' do
     end
 
     it 'has a link to the authors index' do
-      visit "/authors/#{@author.id}"
+      visit "/books/#{@book.id}"
 
       click_on "Authors"
 
@@ -34,7 +34,7 @@ RSpec.describe 'books show page' do
     end
 
     it 'has a link to the books index' do
-      visit "/authors/#{@author.id}"
+      visit "/books/#{@book.id}"
 
       click_on "Books"
 

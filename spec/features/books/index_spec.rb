@@ -25,5 +25,21 @@ RSpec.describe 'books index page' do
       expect(page).to have_content(@book.created_at)
       expect(page).to have_content(@book.updated_at)
     end
+
+    it 'has a link to the authors index' do
+      visit "/books"
+
+      click_on "Authors"
+
+      expect(current_path).to eq("/authors")
+    end
+
+    it 'has a link to the books index' do
+      visit "/books"
+
+      click_on "Books"
+
+      expect(current_path).to eq("/books")
+    end
   end
 end

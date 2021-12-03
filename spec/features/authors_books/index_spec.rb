@@ -14,7 +14,7 @@ RSpec.describe 'authors index page', type: :feature do
     @book_5 = @author_3.books.create!(name: 'Night Angel', rating: 3.8, read: true)
   end
 
-  describe 'when I visit the author/:author_id/books' do 
+  describe 'when I visit the author/:author_id/books' do
     it 'displays the list of an authors books' do
       visit "/authors/#{@author.id}/books"
 
@@ -25,6 +25,22 @@ RSpec.describe 'authors index page', type: :feature do
       expect(page).to have_content(@book_2.read)
       expect(page).to have_content(@book_2.created_at)
       expect(page).to have_content(@book_2.updated_at)
+    end
+
+    it 'has a link to the authors index' do
+      visit "/authors/#{@author.id}/books"
+
+      click_on "Authors"
+
+      expect(current_path).to eq("/authors")
+    end
+
+    it 'has a link to the books index' do
+      visit "/authors/#{@author.id}/books"
+
+      click_on "Books"
+
+      expect(current_path).to eq("/books")
     end
   end
 end
