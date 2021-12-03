@@ -1,4 +1,10 @@
+<header>
+  <%= link_to "Pediatricians", "/pediatricians" %>
+  <%= link_to "Patients", '/patients' %>
+</header>
+<body>
 <h1><%= @baby.name %></h1>
 <p>Age in Months:<%= @baby.age_in_months %></p>
 <p>Full Term Birth:<%= @baby.full_term_birth %></p>
 <p>Pediatrician:<%= @baby.pediatrician_id %></p>
+</body>
