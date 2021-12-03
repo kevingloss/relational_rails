@@ -9,4 +9,22 @@ RSpec.describe 'Patients index page' do
 
     expect(page).to have_content(baby.name)
   end
+
+  it 'displays a link to take the user to the Pediatricians Index' do
+
+    visit "/patients"
+
+    click_on "Pediatricians"
+
+    expect(current_path).to eq('/pediatricians')
+  end
+
+  it 'displays a link to take the user to the Patient Index' do
+
+    visit "/patients"
+
+    click_on "Patients"
+
+    expect(current_path).to eq('/patients')
+  end
 end
