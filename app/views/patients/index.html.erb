@@ -1,5 +1,11 @@
+<header>
+  <%= link_to "Pediatricians", "/pediatricians" %>
+  <%= link_to "Patients", '/patients' %>
+</header>
+<body>
 <h1>Patients</h1>
 
 <% @patients.each do |patient| %>
 <h3><%= patient.name %></h3>
 <% end %>
+</body
