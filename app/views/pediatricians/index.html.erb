@@ -1,5 +1,10 @@
 <h1>Pediatricians</h1>
-
+<header>
+  <%= link_to "Pediatricians", "/pediatricians" %>
+  <%= link_to "Patients", '/patients' %>
+</header>
+<body>
 <% @doctors.desc_order.each do |doctor| %>
 <h3><%= doctor.name %> - Created at: <%doctor.created_at%></h3>
 <% end %>
+<body>

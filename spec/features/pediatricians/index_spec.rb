@@ -22,4 +22,22 @@ RSpec.describe 'Pediatrician index page' do
     expect(@pediatrician_3.name).to appear_before(@pediatrician_2.name)
     expect(@pediatrician_2.name).to appear_before(@pediatrician.name)
   end
+
+  it 'displays a link to take the user to the Pediatricians Index' do
+
+    visit "/pediatricians"
+
+    click_on "Pediatricians"
+
+    expect(current_path).to eq('/pediatricians')
+  end
+
+  it 'displays a link to take the user to the Patient Index' do
+
+    visit "/pediatricians"
+
+    click_on "Patients"
+
+    expect(current_path).to eq('/patients')
+  end
 end
