@@ -11,11 +11,13 @@ RSpec.describe 'Pediatrician index page' do
     visit "/pediatricians"
 
     expect(page).to have_content(@pediatrician.name)
+    expect(page).to have_content(@pediatrician_2.name)
+    expect(page).to have_content(@pediatrician_3.name)
   end
 
-  it 'displays a sorted list of pediatricians by most recent creation date' do
+  it 'displays the Pediatricians in order of creation, first to last' do
 
-    visit '/pediatricians'
+    visit "/pediatricians"
 
     expect(@pediatrician_3.name).to appear_before(@pediatrician_2.name)
     expect(@pediatrician_2.name).to appear_before(@pediatrician.name)
