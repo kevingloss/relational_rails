@@ -29,5 +29,31 @@ RSpec.describe 'Pediatrician show page' do
     visit "/pediatricians/#{@pediatrician_2.id}"
 
     expect(page).to have_content("Total Number of Patients: 1")
-  end 
+  end
+
+  it 'displays a link to take the user to the Pediatricians Index' do
+
+    visit "/pediatricians/#{@pediatrician.id}"
+
+    click_on "Pediatricians"
+
+    expect(current_path).to eq('/pediatricians')
+  end
+
+  it 'displays a link to take the user to the Patient Index' do
+
+    visit "/pediatricians/#{@pediatrician.id}"
+
+    click_on "Patients"
+
+    expect(current_path).to eq('/patients')
+  end
+
+  it 'displays a link to a Pediatricians Patient index' do
+    visit "/pediatricians/#{@pediatrician.id}"
+
+    click_on "See This Doctor's Patients"
+
+    expect(current_path).to eq("/pediatricians/#{@pediatrician.id}/patients")
+  end
 end
