@@ -5,4 +5,7 @@
 <p>Updated At: <%= @author.updated_at %></p>
 
 
-<p>Total Books: <%= @author.total_books %></p>
+<p>
+  Total Books: <%= @author.total_books %>
+  <%= link_to "(See Books by #{@author.name})", "/authors/#{@author.id}/books" %>
+</p>
