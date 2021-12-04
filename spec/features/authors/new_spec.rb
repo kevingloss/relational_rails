@@ -6,7 +6,7 @@ RSpec.describe 'create new author' do
 
     click_link "New Author"
 
-    expect(current_path).to eq('/parents/new')
+    expect(current_path).to eq('/authors/new')
   end
 
   it 'can create a new artist' do
@@ -14,7 +14,7 @@ RSpec.describe 'create new author' do
 
     fill_in('Name', with: 'Tracy Hickman')
     fill_in('Age', with: 66)
-    fill_in('Alive', with: true)
+    check('Alive')
 
     click_button "Create Author"
 
