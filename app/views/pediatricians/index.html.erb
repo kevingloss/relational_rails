@@ -6,5 +6,11 @@
 <body>
 <% @doctors.desc_order.each do |doctor| %>
 <h3><%= doctor.name %> - Created at: <%doctor.created_at%></h3>
+<p>Office: <%= doctor.office %></p>
+<p>Years Practicing: <%= doctor.years_practicing %></p>
+<p>Accepting New Patients: <%= doctor.accepting_patients %></p>
 <% end %>
-<body>
+</body>
+<footer>
+<%= link_to "Create New Pediatrician", '/pediatricians/new' %>
+</footer>

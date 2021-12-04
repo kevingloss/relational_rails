@@ -1,0 +1,22 @@
+<%= form_with url:'/pediatricians', method: :post, local: true do |form| %>
+<!-- url: indicates the path this request is going to be sent to -->
+<!-- local: true is necessary for development environment-->
+<p>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+</p>
+<p>
+  <%= form.label :office %>
+  <%= form.text_field :office %>
+</p>
+<p>
+  <%= form.label :"Years Practicing" %>
+  <%= form.number_field :years_practicing%>
+</p>
+<p>
+  <%= form.label :"Accepting Patients" %>
+  <%= form.check_box :accepting_patients %>
+</p>
+<%= form.submit "Create Pediatrician" %>
+
+<% end %>
