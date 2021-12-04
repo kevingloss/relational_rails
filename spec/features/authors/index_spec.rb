@@ -32,7 +32,7 @@ RSpec.describe 'authors index page', type: :feature do
     end
 
     it 'has a link to the authors index' do
-      visit "/authors/#{@author.id}"
+      visit "/authors"
 
       click_on "Authors"
 
@@ -40,7 +40,7 @@ RSpec.describe 'authors index page', type: :feature do
     end
 
     it 'has a link to the books index' do
-      visit "/authors/#{@author.id}"
+      visit "/authors"
 
       click_on "Books"
 
