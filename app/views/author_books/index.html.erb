@@ -11,4 +11,6 @@
     <p>Rating: <%= book.rating %> | Read: <%= book.read %></p>
     <p>Created At: <%= book.created_at %> | Updated At: <%= book.updated_at %></p>
   <% end %>
+
+  <%= link_to "Create Book", "/authors/#{@author.id}/books/new" %>
 </body>
