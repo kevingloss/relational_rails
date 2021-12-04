@@ -9,4 +9,6 @@
   <p>Read: <%= @book.read %></p>
   <p>Created At: <%= @book.created_at %></p>
   <p>Updated At: <%= @book.updated_at %></p>
+
+  <%= link_to "Update Book", "/books/#{@book.id}/edit" %>
 </body>
