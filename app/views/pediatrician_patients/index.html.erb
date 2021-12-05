@@ -6,11 +6,12 @@
 <h1>Pediatrician and it's Patients</h1>
 <h2><%=@doctor.name%></h2>
 <%@babies.each do |baby|%>
-<h4><%=baby.name%></h4>
-<p><%=baby.age_in_months%></p>
-<p><%=baby.full_term_birth%></p>
+<h4>Baby: <%=baby.name%></h4>
+<p>Age in Months: <%=baby.age_in_months%></p>
+<p>Full Term Birth: <%=baby.full_term_birth%></p>
 <%end%>
 </body>
 <footer>
   <%= link_to "Create New Patient", "/pediatricians/#{@doctor.id}/patients/new" %>
+  <%= link_to "Sort Patients Alphabetically", "/pediatricians/#{@doctor.id}/patients?sort=asc" %>
 </footer>

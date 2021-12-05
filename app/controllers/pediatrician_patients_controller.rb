@@ -1,7 +1,11 @@
 class PediatricianPatientsController < ApplicationController
   def index
     @doctor = Pediatrician.find(params[:id])
-    @babies = @doctor.patients
+    if params[:sort] == "asc"
+      @babies = @doctor.patients.order(name: :asc)
+    else
+      @babies = @doctor.patients
+    end
   end
 
   def new
@@ -9,10 +13,14 @@ class PediatricianPatientsController < ApplicationController
   end
 
   def create
-    #require "pry"; binding.pry
     doctor = Pediatrician.find(params[:pediatrician_id])
     doctor.patients.create(patient_params)
     redirect_to "/pediatricians/#{doctor.id}/patients"
+  end
+
+  def sorted
+    @babies = index.order(name: :asc)
+    redirect_to "/pediatricians/#{index[0].pediatrician_id}/patients"
   end
 
   def patient_params
