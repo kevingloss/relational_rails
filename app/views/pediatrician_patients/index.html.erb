@@ -3,7 +3,7 @@
   <%= link_to "Patients", '/patients' %>
 </header>
 <body>
-<h1>Patients and their Pediatrician</h1>
+<h1>Pediatrician and it's Patients</h1>
 <h2><%=@doctor.name%></h2>
 <%@babies.each do |baby|%>
 <h4><%=baby.name%></h4>
@@ -11,3 +11,6 @@
 <p><%=baby.full_term_birth%></p>
 <%end%>
 </body>
+<footer>
+  <%= link_to "Create New Patient", "/pediatricians/#{@doctor.id}/patients/new" %>
+</footer>

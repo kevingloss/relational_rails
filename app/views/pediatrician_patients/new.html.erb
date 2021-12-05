@@ -1,0 +1,16 @@
+<%= form_with url:"/pediatricians/#{@doctor.id}/patients", method: :post, local: true do |form| %>
+<p>
+<%= form.label :name%>
+<%= form.text_field :name%>
+</p>
+<p>
+<%= form.label :"Age in Months" %>
+<%= form.number_field :age_in_months%>
+</p>
+<p>
+<%= form.label :"Full-Term Birth" %>
+<%= form.check_box :full_term_birth%>
+</p>
+<%= form.submit "Create Patient" %>
+
+<% end %>

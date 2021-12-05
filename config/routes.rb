@@ -22,9 +22,12 @@ Rails.application.routes.draw do
   get '/patients', to: 'patients#index'
   get '/patients/:id', to: 'patients#show'
   get '/pediatricians/:id/patients', to: 'pediatrician_patients#index'
+  get '/pediatricians/:id/patients/new', to: 'pediatrician_patients#new'
 
   post '/pediatricians', to: 'pediatricians#create'
   patch '/pediatricians/:id', to: 'pediatricians#update'
+
+  post '/pediatricians/:pediatrician_id/patients', to: 'pediatrician_patients#create'
 
 
 
