@@ -1,0 +1,15 @@
+<%= form_with url:"/patients/#{@baby.id}", method: :patch, local: true do |form| %>
+<p>
+<%= form.label :name %>
+<%= form.text_field :name %>
+</p>
+<p>
+<%= form.label :"Age In Months" %>
+<%= form.number_field :age_in_months %>
+</p>
+<p>
+<%= form.label :"Full-Term Birth" %>
+<%= form.check_box :full_term_birth %>
+</p>
+<%= form.submit "Submit" %>
+<% end %>
