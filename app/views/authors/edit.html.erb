@@ -1,5 +1,11 @@
 <%= form_with url: "/authors/#{@author.id}", method: :patch, local: true do |form| %>
   <p>
+    Name: <%= @author.name %> <br>
+    Age: <%= @author.age %> <br>
+    Alive: <%= @author.alive %> <br>
+  </p>
+  <hr>
+  <p>
     <%= form.label :name %>
     <%= form.text_field :name %>
   </p>
