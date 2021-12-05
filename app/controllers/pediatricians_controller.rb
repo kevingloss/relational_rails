@@ -11,7 +11,7 @@ class PediatriciansController < ApplicationController
   end
 
   def create
-    doctor = Pediatrician.create(pediatrician_params)
+    @doctor = Pediatrician.create(pediatrician_params)
     redirect_to '/pediatricians'
   end
 
