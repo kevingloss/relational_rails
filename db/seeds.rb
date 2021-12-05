@@ -18,5 +18,5 @@
 @book_5 = @author_3.books.create!(name: 'Night Angel', rating: 3.8, read: true)
 @book_6 = @author.books.create!(name: 'Dawnshard', rating: 4.7, read: false)
 @book_7 = @author_4.books.create!(name: 'Battle Ground', rating: 4.1, read: false)
-@book_8 = @author_4.books.create!(name: 'Peach Talks', rating: 4.2, read: false)
+@book_8 = @author_4.books.create!(name: 'Peace Talks', rating: 4.2, read: false)
 @book_9 = @author.books.create!(name: 'The Dragon Reborn', rating: 4.7, read: true)
