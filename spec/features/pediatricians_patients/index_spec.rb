@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Pediatricians Patients Index' do
   before :each do
     @pediatrician = Pediatrician.create!(name: 'Bob Barker', office: '123 Fake Street', years_practicing: 15, accepting_patients: true)
-    @baby = Patient.create!(name: 'Elora Mielke', age_in_months: 2, full_term_birth: true, pediatrician_id: @pediatrician.id) 
+    @baby = Patient.create!(name: 'Elora Mielke', age_in_months: 2, full_term_birth: true, pediatrician_id: @pediatrician.id)
   end
 
   it 'displays a Pediatricians patients' do
@@ -31,5 +31,33 @@ RSpec.describe 'Pediatricians Patients Index' do
     click_on "Patients"
 
     expect(current_path).to eq('/patients')
+  end
+
+  describe 'Sorting Patients Alphabetically' do
+    before :each do
+      @pediatrician = Pediatrician.create!(name: 'Bob Barker', office: '123 Fake Street', years_practicing: 15, accepting_patients: true)
+
+      @baby = Patient.create!(name: 'Elora Mielke', age_in_months: 2, full_term_birth: true, pediatrician_id: @pediatrician.id)
+      @baby_2 = Patient.create!(name: 'Ezra Bridger', age_in_months: 8, full_term_birth: true, pediatrician_id: @pediatrician.id)
+      @baby_3 = Patient.create!(name: 'Anakin Skywalker', age_in_months: 5, full_term_birth: false, pediatrician_id: @pediatrician.id)
+    end
+
+    it 'provides a link to sort alphabetically' do
+
+      visit "/pediatricians/#{@pediatrician.id}/patients?sort=asc"
+
+      click_link "Sort Patients Alphabetically"
+
+      expect(current_path).to eq("/pediatricians/#{@pediatrician.id}/patients")
+    end
+
+    it 'sorts patients alphabetically' do
+      visit "/pediatricians/#{@pediatrician.id}/patients"
+
+      click_link "Sort Patients Alphabetically"
+      #require "pry"; binding.pry
+      expect(@baby_3.name).to appear_before(@baby.name)
+      expect(@baby.name).to appear_before(@baby_2.name)
+    end
   end
 end
