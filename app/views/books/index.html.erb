@@ -6,7 +6,7 @@
 <body>
   <h1>Books</h1>
 
-  <% @books.read?.each do |book| %>
+  <% @books.each do |book| %>
     <h3><%= book.name %></h3>
     <p>Rating: <%= book.rating %> | Read: <%= book.read %></p>
     <p>Created At: <%= book.created_at %> | Updated At: <%= book.updated_at %></p>
