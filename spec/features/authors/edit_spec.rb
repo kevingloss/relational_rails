@@ -25,5 +25,17 @@ RSpec.describe 'edit an author' do
       expect(page).to have_content("Age: 58")
       expect(page).to have_content("Living: false")
     end
+
+    describe 'from the index page' do
+      let(:author) {Author.create!(name: 'Robert Jordan', alive: true, age: 58)}
+
+      it 'links to the edit author page' do
+        visit "/authors"
+
+        click_link "Update Author"
+
+        expect(current_path).to eq("/authors/#{author.id}/edit")
+      end
+    end
   end
 end
