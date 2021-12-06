@@ -6,6 +6,8 @@
 <h1>Patients</h1>
 
 <% @patients.each do |patient| %>
-<h3><%= patient.name %></h3>
+<h3><%= patient.name %> <%= link_to "Edit Information", "/patients/#{patient.id}/edit"%></h3>
+<p>Age in Months: <%= patient.age_in_months %></p>
+<p>Full Term Birth: <%= patient.full_term_birth %></p>
 <% end %>
 </body

@@ -8,3 +8,6 @@
 <p>Full Term Birth:<%= @baby.full_term_birth %></p>
 <p>Pediatrician:<%= @baby.pediatrician_id %></p>
 </body>
+<footer>
+  <%= link_to "Update Information", "/patients/#{@baby.id}/edit" %>
+</footer>
