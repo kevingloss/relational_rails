@@ -45,4 +45,14 @@ RSpec.describe 'Patients index page' do
     expect(page).to have_content(@baby_2.name)
     expect(page).to_not have_content(@baby_3.name)
   end
+
+  describe 'it displays an edit button' do
+    it 'displays a link that lets the user edit a specific Pediatrician' do
+  
+      visit '/patients'
+
+      click_on('Edit Information', :match => :prefer_exact)
+      expect(current_path).to eq("/patients/#{@baby.id}/edit")
+    end
+  end
 end

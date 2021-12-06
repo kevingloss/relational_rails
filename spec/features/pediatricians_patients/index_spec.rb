@@ -59,5 +59,14 @@ RSpec.describe 'Pediatricians Patients Index' do
       expect(@baby_3.name).to appear_before(@baby.name)
       expect(@baby.name).to appear_before(@baby_2.name)
     end
+
+
+    it 'displays a link that lets the user edit a specific Pediatrician' do
+
+      visit "/pediatricians/#{@pediatrician.id}/patients"
+
+      click_on('Edit Information', :match => :prefer_exact)
+      expect(current_path).to eq("/patients/#{@baby.id}/edit")
+    end
   end
 end
