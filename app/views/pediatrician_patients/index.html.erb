@@ -6,7 +6,7 @@
 <h1>Pediatrician and it's Patients</h1>
 <h2><%=@doctor.name%></h2>
 <%@babies.each do |baby|%>
-<h4>Baby: <%=baby.name%></h4>
+<h4>Baby: <%=baby.name%> <%= link_to "Edit Information", "/patients/#{baby.id}/edit"%></h4>
 <p>Age in Months: <%=baby.age_in_months%></p>
 <p>Full Term Birth: <%=baby.full_term_birth%></p>
 <%end%>
