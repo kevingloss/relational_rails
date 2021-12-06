@@ -26,9 +26,9 @@ RSpec.describe 'Updating a Pediatrician' do
 
     visit "/pediatricians/#{@pediatrician.id}/edit"
 
-    fill_in('Office', with: 'North Hollywood Ave')
-    fill_in('years_practicing', with: 8)
-    check('accepting_patients')
+    fill_in(:Office, with: 'North Hollywood Ave')
+    fill_in(:years_practicing, with: 8)
+    check(:accepting_patients)
 
     click_button("Submit")
     expect(current_path).to eq("/pediatricians/#{@pediatrician.id}")

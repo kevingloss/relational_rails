@@ -48,9 +48,9 @@ RSpec.describe 'Pediatrician index page' do
       pediatrician = Pediatrician.create!(name: 'Bob Barker', office: '123 Fake Street', years_practicing: 15, accepting_patients: true)
       visit '/pediatricians'
 
+      save_and_open_page
       click_on('Edit Information', :match => :prefer_exact)
-
       expect(current_path).to eq("/pediatricians/#{pediatrician.id}/edit")
     end
-  end 
+  end
 end
