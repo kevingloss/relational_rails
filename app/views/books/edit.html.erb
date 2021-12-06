@@ -1,0 +1,21 @@
+<%= form_with url: "/books/#{@book.id}", method: :patch, local: true do |form| %>
+<p>
+  Name: <%= @book.name %> <br>
+  Rating: <%= @book.rating %> <br>
+  Read: <%= @book.read %> <br>
+</p>
+<hr>
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :rating %>
+    <%= form.number_field :rating, step: :any %>
+  </p>
+  <p>
+    <%= form.label :read %>
+    <%= form.check_box :read %>
+  </p>
+  <%= form.submit "Update Book" %>
+<% end %>
