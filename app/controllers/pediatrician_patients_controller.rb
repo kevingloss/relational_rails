@@ -23,6 +23,8 @@ class PediatricianPatientsController < ApplicationController
     redirect_to "/pediatricians/#{index[0].pediatrician_id}/patients"
   end
 
+  private
+  
   def patient_params
     params.permit(:name, :age_in_months, :full_term_birth)
   end

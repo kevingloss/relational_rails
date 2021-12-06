@@ -26,6 +26,8 @@ class PediatriciansController < ApplicationController
     @doctor = Pediatrician.find(params[:id])
   end
 
+  private
+  
   def pediatrician_params
     params.permit(:name, :office, :years_practicing, :accepting_patients)
   end

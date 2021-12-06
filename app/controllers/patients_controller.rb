@@ -17,6 +17,8 @@ class PatientsController < ApplicationController
     redirect_to "/patients/#{@baby.id}"
   end
 
+  private
+
   def patient_params
     params.permit(:name, :age_in_months, :full_term_birth)
   end
