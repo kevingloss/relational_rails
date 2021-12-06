@@ -6,8 +6,11 @@
 <body>
   <h1>Authors</h1>
 
-  <% @authors.desc_order.each do |author| %>
+  <% @authors.each do |author| %>
     <h3><%= author.name %></h3>
     <p>Created At: <%= author.created_at %></p>
+    <%= link_to "Update: #{author.name}", "/authors/#{author.id}/edit" %>
   <% end %>
+
+  <%= link_to "New Author", "/authors/new" %>
 </body>

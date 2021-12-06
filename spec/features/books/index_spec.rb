@@ -12,6 +12,7 @@ RSpec.describe 'books index page' do
     @book_3 = @author_2.books.create!(name: 'The Way of Kings', rating: 4.2, read: true)
     @book_4 = @author_3.books.create!(name: 'Black Prism', rating: 3.5, read: true)
     @book_5 = @author_3.books.create!(name: 'Night Angel', rating: 3.8, read: true)
+    @book_6 = @author_3.books.create!(name: 'The Burning White', rating: 4.0, read: false)
   end
 
   describe 'when I visit the books index page' do
@@ -40,6 +41,13 @@ RSpec.describe 'books index page' do
       click_on "Books"
 
       expect(current_path).to eq("/books")
+    end
+
+    it 'only shows books that have been read' do
+      visit "/books"
+
+      expect(page).to have_content(@book.name)
+      expect(page).to_not have_content(@book_6.name)
     end
   end
 end
