@@ -5,4 +5,8 @@ class Book < ApplicationRecord
   def self.read?
     where(read: true)
   end
+
+  def self.above_rating(rating)
+    where("Rating > #{rating}")
+  end
 end
