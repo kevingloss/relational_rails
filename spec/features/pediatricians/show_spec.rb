@@ -8,11 +8,11 @@ RSpec.describe 'Pediatrician show page' do
     @baby = Patient.create!(name: 'Elora Mielke', age_in_months: 2, full_term_birth: true, pediatrician_id: @pediatrician.id)
     @baby_2 = Patient.create!(name: 'Ezra Bridger', age_in_months: 8, full_term_birth: true, pediatrician_id: @pediatrician.id)
     @baby_3 = Patient.create!(name: 'Kanan Jarrus', age_in_months: 11, full_term_birth: false, pediatrician_id: @pediatrician_2.id)
+
+    visit "/pediatricians/#{@pediatrician.id}"
   end
 
   it 'displays a Pediatrician and its attributes' do
-
-    visit "/pediatricians/#{@pediatrician.id}"
 
     expect(page).to have_content(@pediatrician.name)
     expect(page).to have_content(@pediatrician.office)
@@ -21,8 +21,6 @@ RSpec.describe 'Pediatrician show page' do
   end
 
   it 'displays the total number of patients a Pediatrician has' do
-
-    visit "/pediatricians/#{@pediatrician.id}"
 
     expect(page).to have_content("Total Number of Patients: 2")
 
@@ -33,8 +31,6 @@ RSpec.describe 'Pediatrician show page' do
 
   it 'displays a link to take the user to the Pediatricians Index' do
 
-    visit "/pediatricians/#{@pediatrician.id}"
-
     click_on "Pediatricians"
 
     expect(current_path).to eq('/pediatricians')
@@ -42,18 +38,26 @@ RSpec.describe 'Pediatrician show page' do
 
   it 'displays a link to take the user to the Patient Index' do
 
-    visit "/pediatricians/#{@pediatrician.id}"
-
     click_on "Patients"
 
     expect(current_path).to eq('/patients')
   end
 
   it 'displays a link to a Pediatricians Patient index' do
-    visit "/pediatricians/#{@pediatrician.id}"
 
     click_on "See This Doctor's Patients"
 
     expect(current_path).to eq("/pediatricians/#{@pediatrician.id}/patients")
+  end
+
+  it 'can delete a pediatrican and all of its patients' do
+
+    click_button "Delete This Pediatrician"
+
+    expect(current_path).to eq('/pediatricians')
+
+    visit "/pediatricians"
+
+    expect(page).to_not have_content(@pediatrician.name)
   end
 end
