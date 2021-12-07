@@ -10,4 +10,5 @@
 </body>
 <footer>
   <%= link_to "Update Information", "/patients/#{@baby.id}/edit" %>
+  <%= button_to "Delete This Patient", "/patients/#{@baby.id}", method: :delete %>
 </footer>
