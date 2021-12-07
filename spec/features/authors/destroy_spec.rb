@@ -23,7 +23,18 @@ RSpec.describe 'delete authors' do
     end
 
     it 'deletes the author and all their book records' do
+      visit "/books"
+
+      expect(page).to have_content(@book.name)
+      expect(page).to have_content(@book_2.name)
+      expect(page).to have_content(@book_6.name)
+
       visit "/authors/#{@author.id}"
+
+      expect(page).to have_content(@author.name)
+      expect(page).to have_content(@author.age)
+      expect(page).to have_content(@author.alive)
+
       click_link "Delete #{@author.name}"
 
       expect(page).to_not have_content(@author.name)
