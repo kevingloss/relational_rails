@@ -1,6 +1,6 @@
 class Author < ApplicationRecord
-  has_many :books
-  validates_presence_of :name
+  has_many :books, dependent: :destroy
+  validates_presence_of :name, :age
 
   def total_books
     books.count
