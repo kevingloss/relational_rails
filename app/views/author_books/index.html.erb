@@ -5,6 +5,11 @@
 
 <body>
   <h1>Books by: <%= @author.name %></h1>
+  <%= form_with url: "/authors/#{@author.id}/books?filter=rating", method: :get, local: true do |form| %>
+    <%= form.label :filter, "Filter by books above rating: " %>
+    <%= form.number_field :filter, step: :any %>
+    <%= form.submit "Show Books" %>
+  <% end %>
 
   <% @books.each do |book| %>
     <h2> <%= book.name %> </h2>

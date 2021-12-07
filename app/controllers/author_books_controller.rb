@@ -1,8 +1,12 @@
 class AuthorBooksController < ApplicationController
   def index
     @author = Author.find(params[:author_id])
+    # require 'pry'; binding.pry
     if params[:sort]
+      # require 'pry'; binding.pry
       @books = @author.alphabetize
+    elsif params[:filter]
+      @books = @author.books.above_rating(params[:filter])
     else
       @books = @author.books
     end
