@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'authors index page', type: :feature do
+RSpec.describe 'books by author index page', type: :feature do
 
   before :each do
     @author = Author.create!(name: 'Robert Jordan', alive: false, age: 58)
@@ -55,6 +55,18 @@ RSpec.describe 'authors index page', type: :feature do
       expect(current_path).to eq("/authors/#{@author.id}/books")
       expect(@book_6.name).to appear_before(@book.name)
       expect(@book.name).to appear_before(@book_2.name)
+    end
+
+    describe 'it has a form to receive a number value' do
+      it 'and it filters to only books above the number threshold' do
+        visit "/authors/#{@author.id}/books"
+        fill_in('Filter', with: 4.4)
+        click_button "Show Books with Rating Better Than: 4.4"
+
+        expect(current_path).to eq("/authors/#{@author.id}/books")
+        expect(page).to_not have_content(@book_2.name)
+        expect(page).to_not have_content(@book_2.rating)
+      end
     end
   end
 end
