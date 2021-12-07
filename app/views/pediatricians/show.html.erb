@@ -13,4 +13,5 @@
 </body>
 <footer>
   <%= link_to "Update Info", "/pediatricians/#{@doctor.id}/edit" %>
+  <%= button_to "Delete This Pediatrician", "/pediatricians/#{@doctor.id}", method: :delete %>
 </footer>
