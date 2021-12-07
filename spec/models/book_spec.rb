@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Book, type: :model do
   it {should belong_to :author}
+  it {should validate_presence_of :name}
+  it {should validate_presence_of :rating}
 
   before :each do
     @author = Author.create!(name: 'Robert Jordan', alive: false, age: 58)
