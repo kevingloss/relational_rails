@@ -9,6 +9,7 @@
 <h4>Baby: <%=baby.name%> <%= link_to "Edit Information", "/patients/#{baby.id}/edit"%></h4>
 <p>Age in Months: <%=baby.age_in_months%></p>
 <p>Full Term Birth: <%=baby.full_term_birth%></p>
+<%= button_to "Delete this Patient", "/patients/#{baby.id}", method: :delete %>
 <%end%>
 </body>
 <footer>
