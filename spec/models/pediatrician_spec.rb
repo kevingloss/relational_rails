@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Pediatrician do
   it {should have_many :patients}
+  it {should validate_presence_of :name}
+  it {should validate_presence_of :office}
+  it {should validate_presence_of :years_practicing}
 
   describe 'instance methods' do
     before :each do

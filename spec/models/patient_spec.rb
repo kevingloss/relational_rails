@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Patient do
+RSpec.describe Patient, type: :model do
   it {should belong_to :pediatrician}
+  it {should validate_presence_of :name}
+  it {should validate_presence_of :age_in_months}
 
   before :each do
     @pediatrician = Pediatrician.create!(name: 'Bob Barker', office: '123 Fake Street', years_practicing: 15, accepting_patients: true)
@@ -16,5 +18,10 @@ RSpec.describe Patient do
   it 'can return a list of Patients born at full term' do
 
     expect(Patient.full_term?).to eq([@baby, @baby_2])
+  end
+
+  it 'can return a list of Patients over a given age' do
+
+    expect(Patient.sort_by_age(3)).to eq([@baby_2, @baby_3])
   end
 end

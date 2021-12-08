@@ -9,19 +9,16 @@ RSpec.describe 'Patients index page' do
     @baby = Patient.create!(name: 'Elora Mielke', age_in_months: 2, full_term_birth: true, pediatrician_id: @pediatrician.id)
     @baby_2 = Patient.create!(name: 'Ezra Bridger', age_in_months: 8, full_term_birth: true, pediatrician_id: @pediatrician.id)
     @baby_3 = Patient.create!(name: 'Kanan Jarrus', age_in_months: 11, full_term_birth: false, pediatrician_id: @pediatrician_2.id)
-  end
-  it 'displays a list of patients' do
-
 
     visit '/patients'
+  end
+  it 'displays a list of patients' do
 
     expect(page).to have_content(@baby.name)
     expect(page).to have_content(@baby_2.name)
   end
 
   it 'displays a link to take the user to the Pediatricians Index' do
-
-    visit "/patients"
 
     click_on "Pediatricians"
 
@@ -30,8 +27,6 @@ RSpec.describe 'Patients index page' do
 
   it 'displays a link to take the user to the Patient Index' do
 
-    visit "/patients"
-
     click_on "Patients"
 
     expect(current_path).to eq('/patients')
@@ -39,20 +34,25 @@ RSpec.describe 'Patients index page' do
 
   it 'displays only Patients who were born full-term' do
 
-    visit '/patients'
-
     expect(page).to have_content(@baby.name)
     expect(page).to have_content(@baby_2.name)
     expect(page).to_not have_content(@baby_3.name)
   end
 
-  describe 'it displays an edit button' do
+  describe 'it displays edit/delete function' do
     it 'displays a link that lets the user edit a specific Pediatrician' do
-  
-      visit '/patients'
 
       click_on('Edit Information', :match => :prefer_exact)
       expect(current_path).to eq("/patients/#{@baby.id}/edit")
+    end
+
+    it 'can delete a Patient' do
+
+      click_button("Delete this Patient", :match => :prefer_exact)
+      expect(current_path).to eq('/patients')
+
+      visit '/patients'
+      expect(page).to_not have_content(@baby.name)
     end
   end
 end

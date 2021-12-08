@@ -3,6 +3,8 @@ class PediatricianPatientsController < ApplicationController
     @doctor = Pediatrician.find(params[:id])
     if params[:sort] == "asc"
       @babies = @doctor.patients.order(name: :asc)
+    elsif params[:query_by]
+      @babies = @doctor.patients.sort_by_age(params[:query_by])
     else
       @babies = @doctor.patients
     end
@@ -24,7 +26,7 @@ class PediatricianPatientsController < ApplicationController
   end
 
   private
-  
+
   def patient_params
     params.permit(:name, :age_in_months, :full_term_birth)
   end

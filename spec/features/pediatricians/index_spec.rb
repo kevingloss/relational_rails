@@ -6,10 +6,11 @@ RSpec.describe 'Pediatrician index page' do
       @pediatrician = Pediatrician.create!(name: 'Bob Barker', office: '123 Fake Street', years_practicing: 15, accepting_patients: true)
       @pediatrician_2 = Pediatrician.create!(name: 'Roberto Guauguau', office: '123 Seaseme Street', years_practicing: 10, accepting_patients: false)
       @pediatrician_3 = Pediatrician.create!(name: 'Barbaro Baubau', office: '123 Seaseme Street', years_practicing: 10, accepting_patients: false)
-    end
-    it 'displays a list of pediatricians' do
 
-      visit "/pediatricians"
+        visit "/pediatricians"
+    end
+
+    it 'displays a list of pediatricians' do
 
       expect(page).to have_content(@pediatrician.name)
       expect(page).to have_content(@pediatrician_2.name)
@@ -18,15 +19,11 @@ RSpec.describe 'Pediatrician index page' do
 
     it 'displays the Pediatricians in order of creation, first to last' do
 
-      visit "/pediatricians"
-
       expect(@pediatrician_3.name).to appear_before(@pediatrician_2.name)
       expect(@pediatrician_2.name).to appear_before(@pediatrician.name)
     end
 
     it 'displays a link to take the user to the Pediatricians Index' do
-
-      visit "/pediatricians"
 
       click_on "Pediatricians"
 
@@ -34,8 +31,6 @@ RSpec.describe 'Pediatrician index page' do
     end
 
     it 'displays a link to take the user to the Patient Index' do
-
-      visit "/pediatricians"
 
       click_on "Patients"
 
@@ -50,6 +45,18 @@ RSpec.describe 'Pediatrician index page' do
 
       click_on('Edit Information', :match => :prefer_exact)
       expect(current_path).to eq("/pediatricians/#{pediatrician.id}/edit")
+    end
+
+    it 'can delete a Pediatrician' do
+      pediatrician = Pediatrician.create!(name: 'Bob Barker', office: '123 Fake Street', years_practicing: 15, accepting_patients: true)
+      visit "/pediatricians"
+
+      click_button "Delete this Pediatrician"
+      expect(current_path).to eq('/pediatricians')
+
+      visit '/pediatricians'
+
+      expect(page).to_not have_content(pediatrician.name)
     end
   end
 end

@@ -42,6 +42,9 @@ Rails.application.routes.draw do
   post '/pediatricians/:pediatrician_id/patients', to: 'pediatrician_patients#create'
   patch '/patients/:id', to: 'patients#update'
 
+  delete '/pediatricians/:id', to: 'pediatricians#destroy'
+  delete '/patients/:id', to: 'patients#destroy'
+
 
 
 end

@@ -1,4 +1,5 @@
 <%= form_with url:"/patients/#{@baby.id}", method: :patch, local: true do |form| %>
+<h4>Editing <%=@baby.name %></h4>
 <p>
 <%= form.label :name %>
 <%= form.text_field :name %>
