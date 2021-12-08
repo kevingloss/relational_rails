@@ -55,7 +55,7 @@ RSpec.describe 'Pediatricians Patients Index' do
       visit "/pediatricians/#{@pediatrician.id}/patients"
 
       click_link "Sort Patients Alphabetically"
-      #require "pry"; binding.pry
+
       expect(@baby_3.name).to appear_before(@baby.name)
       expect(@baby.name).to appear_before(@baby_2.name)
     end
@@ -67,6 +67,18 @@ RSpec.describe 'Pediatricians Patients Index' do
 
       click_on('Edit Information', :match => :prefer_exact)
       expect(current_path).to eq("/patients/#{@baby.id}/edit")
+    end
+
+    it 'can delete a Patient' do
+
+      visit "/pediatricians/#{@pediatrician.id}/patients"
+
+      click_on("Delete this Patient", :match => :prefer_exact)
+      expect(current_path).to eq('/patients')
+
+      visit '/patients'
+      save_and_open_page
+      expect(page).to_not have_content(@baby_3.name)
     end
   end
 end
