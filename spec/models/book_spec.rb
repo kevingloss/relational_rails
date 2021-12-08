@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Book, type: :model do
   it {should belong_to :author}
+  it {should validate_presence_of :name}
+  it {should validate_presence_of :rating}
 
   before :each do
     @author = Author.create!(name: 'Robert Jordan', alive: false, age: 58)
@@ -13,9 +15,14 @@ RSpec.describe Book, type: :model do
     @book_3 = @author_2.books.create!(name: 'The Way of Kings', rating: 4.2, read: true)
     @book_4 = @author_3.books.create!(name: 'The Burning White', rating: 3.5, read: false)
     @book_5 = @author_3.books.create!(name: 'Night Angel', rating: 3.8, read: true)
+    @book_6 = @author.books.create!(name: 'The Dragon Reborn', rating: 4.7, read: true)
   end
 
   it 'returns all the books that have been read' do
-    expect(Book.read?).to eq([@book, @book_2, @book_3, @book_5])
+    expect(Book.read?).to eq([@book, @book_2, @book_3, @book_5, @book_6])
+  end
+
+  it 'returns all the books above a given rating' do
+    expect(Book.above_rating(4.4)).to eq([@book, @book_6])
   end
 end
