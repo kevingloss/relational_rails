@@ -4,11 +4,11 @@
 </header>
 
 <body>
-<h1>Pediatrician and it's Patients</h1>
+<h1>Pediatrician</h1>
 <h2><%=@doctor.name%></h2>
-  <%= form_with url:"/pediatricians/#{@doctor.id}/patients?filter=age_in_months", method: :get, local: true do |form| %>
-    <%= form.label :filter, "Filter results by Age in Months Over given age: " %>
-    <%= form.number_field :filter %>
+  <%= form_with url: "/pediatricians/#{@doctor.id}/patients?query_by=age_in_months", method: :get, local: true do |form| %>
+    <%= form.label :query_by, "Filter results by Age in Months Over given age:" %>
+    <%= form.number_field :query_by, step: :any %>
     <%= form.submit "Filter Results" %>
   <% end %>
 

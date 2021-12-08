@@ -7,4 +7,7 @@ class Patient < ApplicationRecord
     end
   end
 
+  def self.sort_by_age(age)
+    where("age_in_months > #{age}")
+  end
 end
