@@ -5,7 +5,7 @@ RSpec.describe 'Patients show page' do
     @pediatrician = Pediatrician.create!(name: 'Bob Barker', office: '123 Fake Street', years_practicing: 15, accepting_patients: true)
     @baby = Patient.create!(name: 'Elora Mielke', age_in_months: 2, full_term_birth: true, pediatrician_id: @pediatrician.id)
 
-      visit "/patients/#{@baby.id}"
+    visit "/patients/#{@baby.id}"
   end
 
   it 'displays the attributes of a patient' do

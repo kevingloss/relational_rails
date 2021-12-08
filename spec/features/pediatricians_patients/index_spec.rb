@@ -27,8 +27,6 @@ RSpec.describe 'Pediatricians Patients Index' do
 
   it 'displays a link to take the user to the Patient Index' do
 
-    visit "/pediatricians/#{@pediatrician.id}/patients"
-
     click_on "Patients"
 
     expect(current_path).to eq('/patients')
@@ -52,7 +50,6 @@ RSpec.describe 'Pediatricians Patients Index' do
 
   it 'displays a link that lets the user edit a specific Pediatrician' do
 
-
     click_on('Edit Information', :match => :prefer_exact)
     expect(current_path).to eq("/patients/#{@baby.id}/edit")
   end
@@ -64,7 +61,6 @@ RSpec.describe 'Pediatricians Patients Index' do
 
     expect(current_path).to eq("/pediatricians/#{@pediatrician.id}/patients")
 
-    save_and_open_page
     expect(page).to have_content(@baby_2.name)
     expect(page).to have_content(@baby_3.name)
     expect(page).to_not have_content(@baby.name)

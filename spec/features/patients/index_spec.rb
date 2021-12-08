@@ -10,7 +10,7 @@ RSpec.describe 'Patients index page' do
     @baby_2 = Patient.create!(name: 'Ezra Bridger', age_in_months: 8, full_term_birth: true, pediatrician_id: @pediatrician.id)
     @baby_3 = Patient.create!(name: 'Kanan Jarrus', age_in_months: 11, full_term_birth: false, pediatrician_id: @pediatrician_2.id)
 
-      visit '/patients'
+    visit '/patients'
   end
   it 'displays a list of patients' do
 
