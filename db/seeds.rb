@@ -28,7 +28,10 @@
 
 @baby = @pediatrician.patients.create!(name: 'Elora Mielke', age_in_months: 2, full_term_birth: true)
 @baby_2 = @pediatrician.patients.create!(name: 'Ezra Bridger', age_in_months: 8, full_term_birth: false)
-@baby_3 = @pediatrician_2.patients.create!(name: 'Kanan Jarrus', age_in_months: 11, full_term_birth: false)
+@baby_3 = @pediatrician.patients.create!(name: 'Kanan Jarrus', age_in_months: 11, full_term_birth: true)
 @baby_4 = @pediatrician_2.patients.create!(name: 'Anakin Skywalker', age_in_months: 7, full_term_birth: true)
-@baby_5 = @pediatrician_3.patients.create!(name: 'Obi-Wan Kenobi', age_in_months: 13, full_term_birth: true)
-@baby_6 = @pediatrician_3.patients.create!(name: 'Ahsoka Tano', age_in_months: 3, full_term_birth: false)
+@baby_5 = @pediatrician_2.patients.create!(name: 'Obi-Wan Kenobi', age_in_months: 13, full_term_birth: true)
+@baby_6 = @pediatrician_2.patients.create!(name: 'Ahsoka Tano', age_in_months: 5, full_term_birth: false)
+@baby_7 = @pediatrician_3.patients.create!(name: 'Darth Maul', age_in_months: 7, full_term_birth: false)
+@baby_8 = @pediatrician_3.patients.create!(name: 'The Child', age_in_months: 10, full_term_birth: true)
+@baby_9 = @pediatrician_3.patients.create!(name: 'Mace Windu', age_in_months: 8, full_term_birth: true)
