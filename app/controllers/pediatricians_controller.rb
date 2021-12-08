@@ -16,7 +16,6 @@ class PediatriciansController < ApplicationController
   end
 
   def update
-    #require "pry"; binding.pry
     @doctor = Pediatrician.find(params[:id])
     @doctor.update(edit_pediatrician_params)
     redirect_to "/pediatricians/#{@doctor.id}"
