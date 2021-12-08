@@ -10,6 +10,7 @@
     <h3><%= book.name %></h3>
     <p>Rating: <%= book.rating %> | Read: <%= book.read %></p>
     <p>Created At: <%= book.created_at %> | Updated At: <%= book.updated_at %></p>
-    <%= link_to "Update: #{book.name}", "/books/#{book.id}/edit" %>
+    <p><%= link_to "Update: #{book.name}", "/books/#{book.id}/edit" %></p>
+    <p><%= link_to "Delete: #{book.name}", "/books/#{book.id}", method: :delete %></p>
   <% end %>
 </body>

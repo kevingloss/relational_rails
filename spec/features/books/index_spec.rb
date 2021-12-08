@@ -49,5 +49,16 @@ RSpec.describe 'books index page' do
       expect(page).to have_content(@book.name)
       expect(page).to_not have_content(@book_6.name)
     end
+
+    it 'can delete each book with a link' do
+      visit "/books"
+
+      expect(page).to have_content(@book.name)
+
+      click_link "Delete: #{@book.name}"
+
+      expect(current_path).to eq("/books")
+      expect(page).to_not have_content(@book.name)
+    end
   end
 end
