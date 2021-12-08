@@ -17,4 +17,9 @@ RSpec.describe Patient do
 
     expect(Patient.full_term?).to eq([@baby, @baby_2])
   end
+
+  it 'can return a list of Patients over a given age' do
+
+    expect(Patient.sort_by_age(3)).to eq([@baby_2, @baby_3])
+  end 
 end

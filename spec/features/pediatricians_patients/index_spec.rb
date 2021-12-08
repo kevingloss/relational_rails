@@ -59,12 +59,12 @@ RSpec.describe 'Pediatricians Patients Index' do
 
   it 'displays a field that lets the user filter results' do
 
-    fill_in('filter', with: 3)
+    fill_in(:query_by, with: 3)
     click_on("Filter Results", :match => :prefer_exact)
 
     expect(current_path).to eq("/pediatricians/#{@pediatrician.id}/patients")
-    visit "/pediatricians/#{@pediatrician.id}/patients"
 
+    save_and_open_page
     expect(page).to have_content(@baby_2.name)
     expect(page).to have_content(@baby_3.name)
     expect(page).to_not have_content(@baby.name)

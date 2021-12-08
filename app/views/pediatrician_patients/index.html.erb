@@ -2,16 +2,24 @@
   <%= link_to "Pediatricians", "/pediatricians" %>
   <%= link_to "Patients", '/patients' %>
 </header>
+
 <body>
 <h1>Pediatrician and it's Patients</h1>
 <h2><%=@doctor.name%></h2>
-<%@babies.each do |baby|%>
-<h4>Baby: <%=baby.name%> <%= link_to "Edit Information", "/patients/#{baby.id}/edit"%></h4>
-<p>Age in Months: <%=baby.age_in_months%></p>
-<p>Full Term Birth: <%=baby.full_term_birth%></p>
-<%= button_to "Delete this Patient", "/patients/#{baby.id}", method: :delete %>
-<%end%>
+  <%= form_with url:"/pediatricians/#{@doctor.id}/patients?filter=age_in_months", method: :get, local: true do |form| %>
+    <%= form.label :filter, "Filter results by Age in Months Over given age: " %>
+    <%= form.number_field :filter %>
+    <%= form.submit "Filter Results" %>
+  <% end %>
+
+  <%@babies.each do |baby|%>
+    <h4>Baby: <%=baby.name%> <%= link_to "Edit Information", "/patients/#{baby.id}/edit"%></h4>
+    <p>Age in Months: <%=baby.age_in_months%></p>
+    <p>Full Term Birth: <%=baby.full_term_birth%></p>
+    <%= button_to "Delete this Patient", "/patients/#{baby.id}", method: :delete %>
+  <%end%>
 </body>
+
 <footer>
   <%= link_to "Create New Patient", "/pediatricians/#{@doctor.id}/patients/new" %>
   <%= link_to "Sort Patients Alphabetically", "/pediatricians/#{@doctor.id}/patients?sort=asc" %>

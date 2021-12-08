@@ -1,6 +1,7 @@
 class PediatricianPatientsController < ApplicationController
   def index
     @doctor = Pediatrician.find(params[:id])
+    require "pry"; binding.pry
     if params[:sort] == "asc"
       @babies = @doctor.patients.order(name: :asc)
     else
@@ -24,7 +25,7 @@ class PediatricianPatientsController < ApplicationController
   end
 
   private
-  
+
   def patient_params
     params.permit(:name, :age_in_months, :full_term_birth)
   end
