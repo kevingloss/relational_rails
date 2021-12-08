@@ -69,6 +69,8 @@ RSpec.describe 'Pediatricians Patients Index' do
       expect(current_path).to eq("/patients/#{@baby.id}/edit")
     end
 
+    it 'displays a field that lets the user filter results by'
+
     it 'can delete a Patient' do
 
       visit "/pediatricians/#{@pediatrician.id}/patients"
